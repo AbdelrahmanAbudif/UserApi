@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+//Mongo User schema
 const UserSchema = new mongoose.Schema({
     id: {
         type: String,
@@ -21,6 +21,7 @@ const UserSchema = new mongoose.Schema({
         default: false
     }
 });
+// This method is used to omit fields we don't want to send in our json response
 UserSchema.methods.toJSON = function(){
     user = this.toObject();
     if(!user.marketingConsent){
