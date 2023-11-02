@@ -4,7 +4,7 @@ Code Byter task
 # Running Instructions
 * clone this repository
 * terminal cd to this file
-* run comman "npm run start" or "npm run server"
+* run command "npm run start" or "npm run server"
 
   There is a database user created specifically for Saqaya and will expire in 1 week. I have included the files with the database user/password. This is not best practice at all but this is for demonstration to see how things are connected.
 
@@ -35,6 +35,7 @@ JSON request body fields required "firstName" , "lastName" , "email", marketingC
 
 ## Second Endpoint
 The endpoint hit is "http://localhost:3000/user/userid"  Get request with the userid needed to be provided in the URL and x-auth-accessToken Header with the user's JWT.
+
 
 * Here a user get request that has marketing consent false so no email in response
   ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjRndTdlMjVseXprMXJ4NWtoMXZnNnRiNTQyb2Q5ZGhqNnZqMHBnbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OK9c2K4o5KhfablqAM/giphy.gif)
