@@ -25,8 +25,11 @@ router.post('/' ,
     if(!errors.isEmpty()) {
        return res.status(400).json({errors:errors.array()});
     }
+
+    const {firstName , lastName , email , marketingConsent} = req.body;
+
     // In case of no errors variables are initialized from the request
-    const {firstName , lastName , email} = req.body;
+
     try {
         // if a user is already existing in the databbase with the same email a status 400 is sent with error message json
         let user = await User.findOne({email});
@@ -37,7 +40,8 @@ router.post('/' ,
         user = new User({
             firstName,
             lastName,
-            email
+            email,
+            marketingConsent
         });
         // salting the email with the string 450d0b0db2bcf4adde5032eca1a7c416e560cf44 and using the crypto library to hash the saltedEmail using SHA1 alg which is the user id.
         let saltedEmail = email+config.get('salt');
@@ -75,6 +79,8 @@ async (req , res) => {
     //after middleware function is done successfully. A query to the database is made to find a User with the id from the request.
     //Status 400 is sent as response if no user found and if user is found status 200 code with user info sent as json.
     try{
+        console.log(req.user);
+        if(req.user.id!=req.params.user_id) return res.status(401).json("This access token belongs to a different user");
         const user = await User.findOne({id: req.params.user_id});
         if(!user) return res.status(400).json('No user with this ID...');
         return res.status(200).json(user);
