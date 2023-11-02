@@ -20,7 +20,7 @@ router.post('/' ,
     if(!errors.isEmpty()) {
        return res.status(400).json({errors:errors.array()});
     }
-    const {firstName , lastName , email} = req.body;
+    const {firstName , lastName , email , marketingConsent} = req.body;
     try {
         let user = await User.findOne({email});
         if(user){
@@ -29,7 +29,8 @@ router.post('/' ,
         user = new User({
             firstName,
             lastName,
-            email
+            email,
+            marketingConsent
         });
         let saltedEmail = email+config.get('salt');
         console.log(saltedEmail);
@@ -58,6 +59,8 @@ router.post('/' ,
 router.get('/:user_id', auth, 
 async (req , res) => {
     try{
+        console.log(req.user);
+        if(req.user.id!=req.params.user_id) return res.status(401).json("This access token belongs to a different user");
         const user = await User.findOne({id: req.params.user_id});
         if(!user) return res.status(400).json('No user with this ID...');
         return res.status(200).json(user);
