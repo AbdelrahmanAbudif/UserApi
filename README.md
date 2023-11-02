@@ -11,4 +11,4 @@ Code Byter task
 # Postman API  tutorial
 ## First Endpoint 
 The endpoint hit is "http://localhost:3000/user" POST request 
-![] (https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW5oemQzYTRzd3JsaWRyYmRjajRoa292dHU3azZ3ZGVyNWdxdGk2cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6Axs6Eb7lmNb2oYvMx/giphy.gif)
+![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW5oemQzYTRzd3JsaWRyYmRjajRoa292dHU3azZ3ZGVyNWdxdGk2cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6Axs6Eb7lmNb2oYvMx/giphy.gif)
